@@ -4,30 +4,37 @@ import { motion } from 'framer-motion';
 const teamMembers = [
 	{
 		id: 1,
-		name: 'Jane Doe',
-		role: 'CEO & Founder',
+		name: 'Patrick HIGIRO',
+		role: 'Managing Director',
 		imageUrl: '/assets/extracted-image-040.jpg',
 		bio: 'Visionary leader with 10+ years in the tech industry.',
 	},
 	{
 		id: 2,
-		name: 'John Smith',
-		role: 'CTO',
+		name: 'Sandra KWIZERA',
+		role: 'General Manager',
 		imageUrl: '/assets/extracted-image-041.jpg',
 		bio: 'Tech strategist passionate about scalable software.',
 	},
 	{
 		id: 3,
-		name: 'Alice Brown',
-		role: 'Product Manager',
+		name: 'Ines IRADUKUNDA',
+		role: 'Sales representative',
 		imageUrl: '/assets/extracted-image-042.jpg',
 		bio: 'Focused on building products that users love.',
 	},
 	{
 		id: 4,
-		name: 'Michael Lee',
-		role: 'Lead Developer',
+		name: 'Nouriath UMUHIRE',
+		role: 'Biomedical Expert',
 		imageUrl: '/assets/extracted-image-043.jpg',
+		bio: 'Full-stack engineer who loves problem-solving.',
+	},
+	{
+		id: 5,
+		name: 'Pacifique HABINSHUTI',
+		role: 'Logistics technician',
+		imageUrl: '/assets/extracted-image-045.jpg',
 		bio: 'Full-stack engineer who loves problem-solving.',
 	},
 ];
@@ -39,8 +46,10 @@ const OurTeam = () => {
 				<h2 className="text-3xl font-bold text-rugero-primary mb-4">
 					Meet Our Team
 				</h2>
-				<p className="text-gray-600">
-					Passionate people behind our success.
+				<p className="text-rugero-muted/70">
+					Our team is committed to providing exceptional
+					customer service, and we work closely with our
+					clients to ensure that their unique needs are met.
 				</p>
 			</div>
 

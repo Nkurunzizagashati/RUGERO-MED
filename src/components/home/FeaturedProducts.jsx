@@ -61,7 +61,7 @@ const FeaturedProducts = () => {
 				{/* CTA */}
 				<div className="text-center mt-12">
 					<Link
-						href="/products"
+						to="/products"
 						className="inline-block bg-rugero-primary hover:bg-rugero-green3 text-rugero-textOnPrimary font-medium px-6 py-3 rounded-lg transition duration-300"
 					>
 						View All Products
