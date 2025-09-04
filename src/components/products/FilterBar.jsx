@@ -13,13 +13,13 @@ const FilterBar = ({ categories, onFilter }) => {
 			<input
 				type="text"
 				placeholder="Search products..."
-				className="border border-gray-300 rounded-lg px-4 py-2 w-full md:w-1/3"
+				className="border border-rugero-lightGray rounded-lg px-4 py-2 w-full md:w-1/3 bg-rugero-lightGray text-black"
 				value={search}
 				onChange={(e) => setSearch(e.target.value)}
 			/>
 
 			<select
-				className="border border-gray-300 rounded-lg px-4 py-2 w-full md:w-1/4"
+				className="border border-rugero-lightGray rounded-lg px-4 py-2 w-full md:w-1/4 bg-rugero-lightGray"
 				value={category}
 				onChange={(e) => setCategory(e.target.value)}
 			>

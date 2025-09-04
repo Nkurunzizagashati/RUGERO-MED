@@ -30,7 +30,7 @@ const products = [
 const FeaturedProducts = () => {
 	return (
 		<section className="py-20 bg-rugero-secondary">
-			<div className="max-w-6xl mx-auto px-6">
+			<div className="px-4 max-w-7xl mx-auto">
 				<h2 className="text-3xl font-bold text-center mb-12 text-rugero-textOnPrimary">
 					Featured Products
 				</h2>

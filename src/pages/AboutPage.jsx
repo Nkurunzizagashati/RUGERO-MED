@@ -1,3 +1,5 @@
+import OurTeam from '../components/OurTeam';
+
 const AboutPage = () => {
 	return (
 		<section className="py-20 px-4 bg-rugero-secondary">
@@ -53,6 +55,7 @@ const AboutPage = () => {
 					</div>
 				</div>
 			</div>
+			<OurTeam />
 		</section>
 	);
 };

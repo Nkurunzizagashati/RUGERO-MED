@@ -49,7 +49,7 @@ const HeroSection = () => {
 			<div className="absolute inset-0 bg-black bg-opacity-60" />
 
 			{/* Content */}
-			<div className="relative z-10 flex flex-col md:flex-row justify-between items-center w-full max-w-7xl mx-auto px-6">
+			<div className="relative z-10 flex flex-col md:flex-row justify-between items-center w-full px-4 max-w-7xl mx-auto">
 				{/* Left - Text */}
 				<motion.div
 					className="text-white text-left md:w-1/2"

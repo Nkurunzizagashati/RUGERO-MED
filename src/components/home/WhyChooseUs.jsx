@@ -39,7 +39,7 @@ const WhyChooseUs = () => {
 			{/* Overlay */}
 			<div className="absolute inset-0 bg-black bg-opacity-70 z-0"></div>
 
-			<div className="relative z-10 max-w-6xl mx-auto px-6 text-white">
+			<div className="relative z-10 px-4 max-w-7xl mx-auto text-white">
 				<h2 className="text-3xl font-bold text-center mb-12">
 					Why Choose Rugero Med?
 				</h2>

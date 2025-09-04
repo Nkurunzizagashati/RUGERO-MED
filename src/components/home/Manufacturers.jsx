@@ -28,7 +28,7 @@ const logos = [
 
 const Manufacturers = () => (
 	<section className="py-16 bg-rugero-secondary">
-		<div className="max-w-6xl mx-auto px-6 relative">
+		<div className="px-4 max-w-7xl mx-auto relative">
 			<h2 className="text-3xl font-bold text-center text-rugero-textOnPrimary mb-10">
 				Our Manufacturers
 			</h2>

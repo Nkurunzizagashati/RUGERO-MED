@@ -1,6 +1,6 @@
 const LoadingSpinner = () => {
 	return (
-		<div className="relative flex items-center justify-center h-screen bg-gradient-to-br from-slate-50 to-slate-200 overflow-hidden font-sans">
+		<div className="relative flex items-center justify-center h-screen bg-gradient-to-br from-rugero-secondary to-rugero-gray3 overflow-hidden font-sans">
 			{/* Background particles */}
 			<div className="absolute inset-0 pointer-events-none -z-10">
 				<div

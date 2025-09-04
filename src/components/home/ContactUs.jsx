@@ -13,7 +13,7 @@ const ContactUs = () => {
 			{/* Overlay */}
 			<div className="absolute inset-0 bg-black bg-opacity-60"></div>
 
-			<div className="relative z-10 max-w-6xl mx-auto px-6 text-white">
+			<div className="relative z-10 px-4 max-w-7xl mx-auto text-white">
 				<div className="grid grid-cols-1 md:grid-cols-2 gap-10 bg-rugero-lightGray rounded-2xl shadow-lg p-8">
 					{/* Left: Contact Info and Map */}
 					<div className="space-y-6">

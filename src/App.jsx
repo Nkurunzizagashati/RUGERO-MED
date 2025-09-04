@@ -12,6 +12,7 @@ import AboutPage from './pages/AboutPage';
 import ProjectsPage from './pages/ProjectsPage';
 import NewsPage from './pages/NewsPage';
 import ContactUsPage from './pages/ContactUsPage';
+import NewsDetailsPage from './pages/NewsDetailsPage';
 
 const router = createBrowserRouter([
 	{
@@ -24,6 +25,7 @@ const router = createBrowserRouter([
 			{ path: 'about', element: <AboutPage /> },
 			{ path: 'projects', element: <ProjectsPage /> },
 			{ path: 'news', element: <NewsPage /> },
+			{ path: 'news/:id', element: <NewsDetailsPage /> },
 			{ path: 'contact', element: <ContactUsPage /> },
 		],
 	},
