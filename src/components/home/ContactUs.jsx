@@ -32,7 +32,7 @@ const ContactUs = () => {
 						<div className="flex items-start gap-3">
 							<span className="text-2xl">📞</span>
 							<p className="text-rugero-text">
-								(+250) 787 541 188
+								(+250) 791590051
 							</p>
 						</div>
 
@@ -45,9 +45,10 @@ const ContactUs = () => {
 
 						<iframe
 							className="w-full h-60 rounded-lg border-none"
-							title="Kigali Map"
-							src="https://maps.google.com/maps?q=Kigali,%20Rwanda&t=&z=13&ie=UTF8&iwloc=&output=embed"
+							title="RugeroMed Location"
+							src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3987.5173000000003!2d30.0917!3d-1.9442!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x19dca76b8a1d8e1f%3A0x5f5f5f5f5f5f5f5f!2sKG%20607%20St%2C%20Kigali!5e0!3m2!1sen!2srw!4v1620000000000!5m2!1sen!2srw"
 							loading="lazy"
+							allowFullScreen=""
 						></iframe>
 					</div>
 

@@ -1,4 +1,5 @@
 import React from 'react';
+import SEO from '../components/SEO';
 import HeroSection from '../components/home/HeroSection';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
@@ -13,6 +14,11 @@ import AnimatedSection from '../components/AnimatedSection'; // adjust path as n
 const HomePage = () => {
 	return (
 		<>
+			<SEO 
+				title="Home"
+				description="RugeroMed - Leading provider of medical equipment and healthcare solutions in Africa. Discover our range of medical devices and services."
+				keywords="medical equipment, healthcare solutions, hospital supplies, medical devices, Africa healthcare, medical technology"
+			/>
 			<AnimatedSection>
 				<HeroSection />
 			</AnimatedSection>
@@ -35,7 +41,7 @@ const HomePage = () => {
 				<Manufacturers />
 			</AnimatedSection>
 
-			<ContactUs />
+			{/* <ContactUs /> */}
 		</>
 	);
 };

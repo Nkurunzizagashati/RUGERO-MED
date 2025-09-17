@@ -28,7 +28,7 @@ const fadeRight = {
 
 const HeroSection = () => {
 	return (
-		<section className="relative h-[80vh] flex items-center overflow-hidden">
+		<section className="relative min-h-[90vh] flex items-start sm:pt-24 md:pt-0 md:items-center overflow-hidden">
 			{/* Video Background */}
 			<video
 				autoPlay
@@ -49,7 +49,7 @@ const HeroSection = () => {
 			<div className="absolute inset-0 bg-black bg-opacity-60" />
 
 			{/* Content */}
-			<div className="relative z-10 flex flex-col md:flex-row justify-between items-center w-full px-4 max-w-7xl mx-auto">
+			<div className="relative z-10 flex flex-col md:flex-row justify-between items-center w-full px-6 max-w-7xl mx-auto mt-12 md:mt-0">
 				{/* Left - Text */}
 				<motion.div
 					className="text-white text-left md:w-1/2"
@@ -57,10 +57,10 @@ const HeroSection = () => {
 					animate="visible"
 					variants={fadeLeft}
 				>
-					<h1 className="text-4xl sm:text-5xl font-bold mb-6">
+					<h1 className="text-4xl sm:text-5xl font-bold mb-6 leading-tight">
 						Empowering Healthcare Excellence
 					</h1>
-					<p className="text-lg sm:text-xl mb-8 text-rugero-muted">
+					<p className="text-lg sm:text-xl mb-10 text-rugero-muted">
 						We design, supply, and install advanced medical
 						equipment for hospitals, clinics, and homecare.
 					</p>
@@ -74,7 +74,7 @@ const HeroSection = () => {
 
 				{/* Right - Stats Cards */}
 				<motion.div
-					className="grid grid-cols-2 gap-4 mt-10 md:mt-0 md:ml-10 md:w-1/2"
+					className="grid grid-cols-2 gap-4 mt-16 md:mt-0 md:ml-10 md:w-1/2"
 					initial="hidden"
 					animate="visible"
 					variants={fadeRight}

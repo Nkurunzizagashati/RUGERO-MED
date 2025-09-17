@@ -3,6 +3,7 @@ import { useParams, useNavigate, Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { fetchNews } from '../redux/actions';
+import SEO from '../components/SEO'; // ✅ Import SEO
 
 const NewsDetailsPage = () => {
 	const { id } = useParams();
@@ -32,89 +33,124 @@ const NewsDetailsPage = () => {
 
 	if (pending) {
 		return (
-			<div className="p-8 text-center text-gray-500">
-				Loading news...
-			</div>
+			<>
+				<SEO
+					title="Loading News..."
+					description="Loading RugeroMed news details."
+				/>
+				<div className="p-8 text-center text-gray-500">
+					Loading news...
+				</div>
+			</>
 		);
 	}
 
 	if (error) {
 		return (
-			<div className="p-8 text-center text-red-500">{error}</div>
+			<>
+				<SEO
+					title="Error Loading News"
+					description="An error occurred while loading RugeroMed news."
+				/>
+				<div className="p-8 text-center text-red-500">
+					{error}
+				</div>
+			</>
 		);
 	}
 
 	if (!news) {
 		return (
-			<div className="p-8 text-center text-gray-500">
-				<h2 className="text-2xl font-semibold">
-					News Not Found
-				</h2>
-				<button
-					onClick={() => navigate(-1)}
-					className="mt-4 px-4 py-2 bg-rugero-primary text-white rounded hover:bg-rugero-accent"
-				>
-					Go Back
-				</button>
-			</div>
+			<>
+				<SEO
+					title="News Not Found"
+					description="The requested news article could not be found."
+				/>
+				<div className="p-8 text-center text-gray-500">
+					<h2 className="text-2xl font-semibold">
+						News Not Found
+					</h2>
+					<button
+						onClick={() => navigate(-1)}
+						className="mt-4 px-4 py-2 bg-rugero-primary text-white rounded hover:bg-rugero-accent"
+					>
+						Go Back
+					</button>
+				</div>
+			</>
 		);
 	}
 
 	return (
-		<div className="px-4 py-16 max-w-7xl mx-auto border-b">
-			{/* Image */}
-			{news.imageUrl && (
-				<img
-					src={news.imageUrl}
-					alt={news.title}
-					className="w-full h-96 object-cover rounded-lg shadow mb-6"
-				/>
-			)}
+		<>
+			{/* ✅ Dynamic SEO for this article */}
+			<SEO
+				title={news.title}
+				description={news.description
+					?.replace(/<[^>]+>/g, '')
+					.slice(0, 160)} // strip HTML & limit length
+				keywords={(news.tags || []).join(', ')}
+				image={news.imageUrl}
+			/>
 
-			{/* Title */}
-			<h1 className="text-3xl font-bold text-rugero-muted mb-2">
-				{news.title}
-			</h1>
-
-			{/* Citation / Source */}
-			{news.citation && (
-				<span className="inline-block bg-rugero-secondary text-white text-xs font-semibold mb-4">
-					Source:{' '}
-					<span className="italic rounded-full uppercase bg-rugero-muted/50 text-rugero-secondary px-3 py-1">
-						{news.citation}
-					</span>
-				</span>
-			)}
-
-			{/* Publisher + Date */}
-			<div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-6 text-sm text-gray-500">
-				{news.publisher && (
-					<p>
-						Published by:{' '}
-						<span className="font-medium text-rugero-primary">
-							{news.publisher}
-						</span>
-					</p>
+			<div className="px-4 py-16 max-w-7xl mx-auto border-b">
+				{/* Image */}
+				{news.imageUrl && (
+					<img
+						src={news.imageUrl}
+						alt={news.title}
+						className="w-full h-96 object-cover rounded-lg shadow mb-6"
+					/>
 				)}
-				<p>
-					Published on:{' '}
-					{new Date(news.createdAt).toLocaleDateString()}
-				</p>
+
+				{/* Title */}
+				<h1 className="text-3xl font-bold text-rugero-muted mb-2">
+					{news.title}
+				</h1>
+
+				{/* Citation / Source */}
+				{news.citation && (
+					<span className="inline-block bg-rugero-secondary text-white text-xs font-semibold mb-4">
+						Source:{' '}
+						<span className="italic rounded-full uppercase bg-rugero-muted/50 text-rugero-secondary px-3 py-1">
+							{news.citation}
+						</span>
+					</span>
+				)}
+
+				{/* Publisher + Date */}
+				<div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-6 text-sm text-gray-500">
+					{news.reporter && (
+						<p>
+							Published by:{' '}
+							<span className="font-medium text-rugero-primary">
+								{news.reporter}
+							</span>
+						</p>
+					)}
+					<p>
+						Published on:{' '}
+						{new Date(news.createdAt).toLocaleDateString()}
+					</p>
+				</div>
+
+				{/* Description */}
+				<div
+					className="text-lg leading-relaxed text-rugero-muted/50 mb-6"
+					dangerouslySetInnerHTML={{
+						__html: news.description,
+					}}
+				></div>
+
+				{/* Back Button */}
+				<Link
+					to="/news"
+					className="px-6 py-2 bg-gray-200 rounded hover:bg-gray-300"
+				>
+					← Back
+				</Link>
 			</div>
-
-			{/* Description */}
-			<p className="text-lg leading-relaxed text-rugero-muted/50 mb-6">
-				{news.description}
-			</p>
-
-			{/* Back Button */}
-			<Link
-				to="/news"
-				className="px-6 py-2 bg-gray-200 rounded hover:bg-gray-300"
-			>
-				← Back
-			</Link>
-		</div>
+		</>
 	);
 };
 

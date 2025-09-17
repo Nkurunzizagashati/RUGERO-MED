@@ -6,13 +6,13 @@ import { store } from './redux/store'; // Your Redux store
 
 import MainLayout from './layouts/MainLayout';
 import HomePage from './pages/HomePage';
-import ProductsPage from './pages/ProductsPage';
 import ProductDetailsPage from './pages/ProductDetailsPage';
 import AboutPage from './pages/AboutPage';
 import ProjectsPage from './pages/ProjectsPage';
 import NewsPage from './pages/NewsPage';
 import ContactUsPage from './pages/ContactUsPage';
 import NewsDetailsPage from './pages/NewsDetailsPage';
+import ProductsPage from './pages/ProductsPage';
 
 const router = createBrowserRouter([
 	{

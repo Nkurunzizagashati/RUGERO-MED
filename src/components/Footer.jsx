@@ -59,42 +59,67 @@ const Footer = () => {
 						</ul>
 					</div>
 
-					{/* Services */}
+					{/* Solutions */}
 					<div>
 						<h3 className="text-lg font-semibold text-rugero-background mb-4">
-							Our Services
+							Our Solutions
 						</h3>
 						<ul className="space-y-2 text-sm">
 							<li>
 								<Link
-									to="/products/cssd"
-									className="hover:text-rugero-muted"
+									to="/#solutions"
+									className="hover:text-rugero-muted flex items-start gap-2"
 								>
-									CSSD Solutions
+									<span>🏥</span>
+									<span>
+										Medical Equipment & Procurement
+									</span>
 								</Link>
 							</li>
 							<li>
 								<Link
-									to="/products/theatre"
-									className="hover:text-rugero-muted"
+									to="/#solutions"
+									className="hover:text-rugero-muted flex items-start gap-2"
 								>
-									Theatre Design
+									<span>👨‍🏫</span>
+									<span>
+										On-Site Technical Support &
+										Training
+									</span>
 								</Link>
 							</li>
 							<li>
 								<Link
-									to="/products/home-cares"
-									className="hover:text-rugero-muted"
+									to="/#solutions"
+									className="hover:text-rugero-muted flex items-start gap-2"
 								>
-									Home Care Equipment
+									<span>💉</span>
+									<span>
+										Medical & Surgical Consumables
+									</span>
 								</Link>
 							</li>
 							<li>
 								<Link
-									to="/products/plastic-surgery"
-									className="hover:text-rugero-muted"
+									to="/#solutions"
+									className="hover:text-rugero-muted flex items-start gap-2"
 								>
-									Plastic Surgery
+									<span>🔧</span>
+									<span>
+										Installation of Medical
+										Equipment
+									</span>
+								</Link>
+							</li>
+							<li>
+								<Link
+									to="/#solutions"
+									className="hover:text-rugero-muted flex items-start gap-2"
+								>
+									<span>💻</span>
+									<span>
+										Preventive Maintenance & Repair
+									</span>
 								</Link>
 							</li>
 						</ul>
@@ -105,33 +130,40 @@ const Footer = () => {
 						<h3 className="text-lg font-semibold text-rugero-background mb-4">
 							Contact Us
 						</h3>
-						<ul className="text-sm space-y-2">
-							<li>
-								Email:{' '}
+						<ul className="text-sm space-y-3">
+							<li className="flex items-start gap-2">
+								<span>📍</span>
+								<span>
+									KG 607 ST, Rugando Kimihurura,
+									<br />
+									Gasabo, Kigali - Rwanda
+								</span>
+							</li>
+							<li className="flex items-center gap-2">
+								<span>📞</span>
 								<a
-									href="mailto:info@rugero.rw"
+									href="tel:+250791590051"
 									className="hover:text-rugero-muted"
 								>
-									info@rugero.rw
+									(+250) 791 590 051
 								</a>
 							</li>
-							<li>
-								Phone:{' '}
+							<li className="flex items-center gap-2">
+								<span>📧</span>
 								<a
-									href="tel:+250780000000"
+									href="mailto:info@rugeromed.com"
 									className="hover:text-rugero-muted"
 								>
-									+250 780 000 000
+									info@rugeromed.com
 								</a>
 							</li>
-							<li>Location: Kigali, Rwanda</li>
 						</ul>
 					</div>
 				</div>
 
 				{/* Divider */}
 				<div className="border-t border-rugero-muted mt-10 pt-6 text-center text-sm text-rugero-background/70">
-					© {new Date().getFullYear()} Rugero Med. All rights
+					&copy; {new Date().getFullYear()} Rugero Med. All rights
 					reserved.
 				</div>
 			</div>

@@ -5,52 +5,76 @@ const teamMembers = [
 	{
 		id: 1,
 		name: 'Patrick HIGIRO',
-		role: 'Managing Director',
-		imageUrl: '/assets/extracted-image-040.jpg',
-		bio: 'Visionary leader with 10+ years in the tech industry.',
+		role: 'CEO / Founder',
+		imageUrl: '/assets/higiro.jpg',
 	},
 	{
 		id: 2,
-		name: 'Sandra KWIZERA',
-		role: 'General Manager',
-		imageUrl: '/assets/extracted-image-041.jpg',
-		bio: 'Tech strategist passionate about scalable software.',
+		name: 'Delphin Kalisa',
+		role: 'Managing Director',
+		imageUrl: '/assets/delphe.jpg',
 	},
 	{
 		id: 3,
-		name: 'Ines IRADUKUNDA',
-		role: 'Sales representative',
-		imageUrl: '/assets/extracted-image-042.jpg',
-		bio: 'Focused on building products that users love.',
+		name: 'Sandra Kwizera',
+		role: 'Sales and Recovery Manager',
+		imageUrl: '/assets/sandra.jpg',
 	},
 	{
 		id: 4,
-		name: 'Nouriath UMUHIRE',
-		role: 'Biomedical Expert',
-		imageUrl: '/assets/extracted-image-043.jpg',
-		bio: 'Full-stack engineer who loves problem-solving.',
+		name: 'Ines Iradukunda',
+		role: 'Operations Manager',
+		imageUrl: '/assets/ines.jpg',
 	},
 	{
 		id: 5,
+		name: ' Sergine Inema Buragatare',
+		role: 'Office Manager',
+		imageUrl: '/assets/inema.jpg',
+	},
+	{
+		id: 6,
+		name: ' Nouriath Umuhire',
+		role: 'Biomedical engineer and Regulatory Officer',
+		imageUrl: '/assets/umuhire.jpg',
+	},
+	{
+		id: 7,
+		name: 'Eduige Muhayuwera',
+		role: 'Operations Coordinator',
+		imageUrl: '/assets/eduige.jpg',
+	},
+	{
+		id: 8,
 		name: 'Pacifique HABINSHUTI',
-		role: 'Logistics technician',
-		imageUrl: '/assets/extracted-image-045.jpg',
-		bio: 'Full-stack engineer who loves problem-solving.',
+		role: 'Logistics Officer / Driver',
+		imageUrl: '/assets/pacifique.jpg',
+	},
+	{
+		id: 9,
+		name: 'PacifiquMugisha Irene HABINSHUTI',
+		role: 'Driver',
+		imageUrl: '/assets/irene.jpg',
 	},
 ];
 
 const OurTeam = () => {
 	return (
-		<section className="max-w-7xl mx-auto px-6 py-16">
+		<section className="max-w-7xl mx-auto px-6 py-16 border-b">
 			<div className="text-center mb-12">
 				<h2 className="text-3xl font-bold text-rugero-primary mb-4">
 					Meet Our Team
 				</h2>
-				<p className="text-rugero-muted/70">
-					Our team is committed to providing exceptional
-					customer service, and we work closely with our
-					clients to ensure that their unique needs are met.
-				</p>
+
+				<div className="flex justify-center">
+					<p className="text-rugero-muted/70 w-[70%]">
+						Together, we are not just supplying medical
+						products—we are building a stronger, safer, and
+						more responsive healthcare future for our
+						communities. Thank you for being part of the
+						RugeroMed story.
+					</p>
+				</div>
 			</div>
 
 			<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
