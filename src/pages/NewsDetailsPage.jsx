@@ -1,97 +1,82 @@
 // src/pages/NewsDetailsPage.jsx
-import { useParams, useNavigate, Link } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
-import { useEffect, useState } from 'react';
-import { fetchNews } from '../redux/actions';
-import SEO from '../components/SEO'; // ✅ Import SEO
+import { useParams, useNavigate, Link, useLocation } from 'react-router-dom';
+import { useMemo } from 'react';
+import SEO from '../components/SEO';
+import { useNews, useNewsItem } from '../hooks/useNews';
 
 const NewsDetailsPage = () => {
-	const { id } = useParams();
-	const navigate = useNavigate();
-	const dispatch = useDispatch();
+    const { id } = useParams();
+    const location = useLocation();
+    const passed = location.state?.news;
+    const navigate = useNavigate();
+    const { data: list = [], isLoading: listLoading } = useNews({ staleTime: 5 * 60 * 1000 });
+    const { data: item, isLoading: pending, error } = useNewsItem(id);
+    const news = useMemo(
+        () => passed || item || list.find((n) => n._id === id),
+        [passed, item, list, id]
+    );
 
-	const {
-		data: newsList,
-		pending,
-		error,
-	} = useSelector((state) => state.news);
+    if (pending && !news) {
+        return (
+            <>
+                <SEO
+                    title="Loading News..."
+                    description="Loading RugeroMed news details."
+                />
+                <div className="p-8 text-center text-gray-500">
+                    Loading news...
+                </div>
+            </>
+        );
+    }
 
-	const [news, setNews] = useState(null);
+    if (error && !news && !listLoading) {
+        return (
+            <>
+                <SEO
+                    title="Error Loading News"
+                    description="An error occurred while loading RugeroMed news."
+                />
+                <div className="p-8 text-center text-red-500">
+                    {error.message || String(error)}
+                </div>
+            </>
+        );
+    }
 
-	useEffect(() => {
-		if (!newsList || newsList.length === 0) {
-			dispatch(fetchNews());
-		}
-	}, [dispatch, newsList]);
+    if (!pending && !error && !news) {
+        return (
+            <>
+                <SEO
+                    title="News Not Found"
+                    description="The requested news article could not be found."
+                />
+                <div className="p-8 text-center text-gray-500">
+                    <h2 className="text-2xl font-semibold">
+                        News Not Found
+                    </h2>
+                    <button
+                        onClick={() => navigate(-1)}
+                        className="mt-4 px-4 py-2 bg-rugero-primary text-white rounded hover:bg-rugero-accent"
+                    >
+                        Go Back
+                    </button>
+                </div>
+            </>
+        );
+    }
 
-	useEffect(() => {
-		if (newsList && newsList.length > 0) {
-			const found = newsList.find((n) => n._id === id);
-			setNews(found);
-		}
-	}, [id, newsList]);
-
-	if (pending) {
-		return (
-			<>
-				<SEO
-					title="Loading News..."
-					description="Loading RugeroMed news details."
-				/>
-				<div className="p-8 text-center text-gray-500">
-					Loading news...
-				</div>
-			</>
-		);
-	}
-
-	if (error) {
-		return (
-			<>
-				<SEO
-					title="Error Loading News"
-					description="An error occurred while loading RugeroMed news."
-				/>
-				<div className="p-8 text-center text-red-500">
-					{error}
-				</div>
-			</>
-		);
-	}
-
-	if (!news) {
-		return (
-			<>
-				<SEO
-					title="News Not Found"
-					description="The requested news article could not be found."
-				/>
-				<div className="p-8 text-center text-gray-500">
-					<h2 className="text-2xl font-semibold">
-						News Not Found
-					</h2>
-					<button
-						onClick={() => navigate(-1)}
-						className="mt-4 px-4 py-2 bg-rugero-primary text-white rounded hover:bg-rugero-accent"
-					>
-						Go Back
-					</button>
-				</div>
-			</>
-		);
-	}
-
-	return (
-		<>
-			{/* ✅ Dynamic SEO for this article */}
-			<SEO
-				title={news.title}
-				description={news.description
-					?.replace(/<[^>]+>/g, '')
-					.slice(0, 160)} // strip HTML & limit length
-				keywords={(news.tags || []).join(', ')}
-				image={news.imageUrl}
-			/>
+    return (
+        <>
+            {/* ✅ Dynamic SEO for this article */}
+            <SEO
+                title={news.title}
+                description={news.description
+                    ?.replace(/<[^>]+>/g, '')
+                    .slice(0, 160)} // strip HTML & limit length
+                keywords={(news.tags || []).join(', ')}
+                image={news.imageUrl}
+            />
 
 			<div className="px-4 py-16 max-w-7xl mx-auto border-b">
 				{/* Image */}

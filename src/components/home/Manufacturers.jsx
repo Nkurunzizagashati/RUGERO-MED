@@ -1,15 +1,15 @@
-import emtel1 from '../../assets/emtel-1.jpg';
-import emtel2 from '../../assets/emtel-2.jpg';
-import emtel3 from '../../assets/emtel-3.jpg';
-import emtel4 from '../../assets/emtel-4.jpg';
-import emtel5 from '../../assets/emtel-5.jpg';
-import emtel6 from '../../assets/emtel-6.jpg';
-import emtel7 from '../../assets/emtel-7.jpg';
-import emtel8 from '../../assets/emtel-8.jpg';
-import emtel9 from '../../assets/emtel-9.jpg';
-import emtel10 from '../../assets/emtel-10.jpg';
-import emtel11 from '../../assets/emtel-11.jpg';
-import emtel12 from '../../assets/emtel-12.jpg';
+const emtel1 = '/assets/emtel-1.jpg';
+const emtel2 = '/assets/emtel-2.jpg';
+const emtel3 = '/assets/emtel-3.jpg';
+const emtel4 = '/assets/emtel-4.jpg';
+const emtel5 = '/assets/emtel-5.jpg';
+const emtel6 = '/assets/emtel-6.jpg';
+const emtel7 = '/assets/emtel-7.jpg';
+const emtel8 = '/assets/emtel-8.jpg';
+const emtel9 = '/assets/emtel-9.jpg';
+const emtel10 = '/assets/emtel-10.jpg';
+const emtel11 = '/assets/emtel-11.jpg';
+const emtel12 = '/assets/emtel-12.jpg';
 
 const logos = [
 	emtel1,
@@ -48,7 +48,7 @@ const Manufacturers = () => (
 							key={i}
 							src={src}
 							alt={`Manufacturer ${i + 1}`}
-							className="w-48 mx-6 grayscale hover:grayscale-0 transition duration-300"
+							className="w-48 mx-6"
 						/>
 					))}
 				</div>

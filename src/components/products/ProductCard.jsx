@@ -15,9 +15,10 @@ const ProductCard = ({ product }) => {
 				<p className="text-gray-500 text-sm mb-2">
 					Category: {product.category}
 				</p>
-				<p className="text-gray-700 text-sm mb-3 line-clamp-2">
-					{product.description}
-				</p>
+				<div
+					className="text-gray-700 text-sm mb-3 line-clamp-2"
+					dangerouslySetInnerHTML={{ __html: product.description || '' }}
+				/>
 				<div className="mt-auto pt-2">
 					<Link
 						to={`/products/${product._id}`}

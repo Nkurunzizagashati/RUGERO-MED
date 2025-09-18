@@ -1,36 +1,17 @@
 // src/pages/ProductDetailsPage.jsx
 import { useParams, useNavigate, Link } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
-import { useEffect, useState } from 'react';
-import { fetchProducts } from '../redux/actions';
+import { useMemo } from 'react';
+import { useProducts } from '../hooks/useProducts';
 import SEO from '../components/SEO';
 
 const ProductDetailsPage = () => {
 	const { id } = useParams();
 	const navigate = useNavigate();
-	const dispatch = useDispatch();
-
-	const {
-		data: products,
-		pending,
-		error,
-	} = useSelector((state) => state.products);
-
-	const [product, setProduct] = useState(null);
-
-	useEffect(() => {
-		// fetch products if store is empty
-		if (!products || products.length === 0) {
-			dispatch(fetchProducts());
-		}
-	}, [dispatch, products]);
-
-	useEffect(() => {
-		if (products && products.length > 0) {
-			const found = products.find((p) => p._id === id);
-			setProduct(found);
-		}
-	}, [id, products]);
+	const { data: products = [], isLoading: pending, error } = useProducts();
+	const product = useMemo(
+		() => products.find((p) => p._id === id),
+		[products, id]
+	);
 
 	if (pending) {
 		return (
@@ -60,7 +41,7 @@ const ProductDetailsPage = () => {
 		);
 	}
 
-	if (!product) {
+	if (!pending && !error && !product) {
 		return (
 			<>
 				<SEO
@@ -87,8 +68,9 @@ const ProductDetailsPage = () => {
 			<SEO
 				title={`${product.title} | RugeroMed`}
 				description={
-					product.description ||
-					`Discover ${product.title} at RugeroMed.`
+					(product.description
+						?.replace(/<[^>]+>/g, '')
+						.slice(0, 160)) || `Discover ${product.title} at RugeroMed.`
 				}
 				keywords={`RugeroMed, ${product.title}, ${product.category}, medical equipment`}
 			/>
@@ -113,9 +95,10 @@ const ProductDetailsPage = () => {
 				</span>
 
 				{/* Description */}
-				<p className="text-lg leading-relaxed text-rugero-muted/50 mb-4">
-					{product.description}
-				</p>
+				<div
+					className="text-lg leading-relaxed text-rugero-muted/50 mb-4"
+					dangerouslySetInnerHTML={{ __html: product.description }}
+				/>
 
 				{/* Price */}
 				{product.price && (

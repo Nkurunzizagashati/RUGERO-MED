@@ -1,4 +1,4 @@
-import extractedImage from '../../assets/extracted-image-009.jpg';
+const extractedImage = '/assets/extracted-image-009.jpg';
 
 const reasons = [
 	{

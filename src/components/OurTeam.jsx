@@ -88,6 +88,8 @@ const OurTeam = () => {
 							src={member.imageUrl}
 							alt={member.name}
 							className="w-32 h-32 object-cover rounded-full mx-auto mb-4"
+							loading="lazy"
+							decoding="async"
 						/>
 						<h3 className="text-lg font-semibold text-gray-800">
 							{member.name}
