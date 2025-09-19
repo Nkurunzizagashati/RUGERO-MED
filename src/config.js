@@ -1,3 +1,3 @@
-const backendUrl = 'http://localhost:3002/api';
+const backendUrl = 'https://api.rugeromed.com/api';
 
 export { backendUrl };

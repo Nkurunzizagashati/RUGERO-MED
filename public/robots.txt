@@ -1,0 +1,11 @@
+# robots.txt for RUGERO_MED
+# This file controls how search engine crawlers access your site.
+# Place in the public/ directory so it is served at /robots.txt
+
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+
+# If you have a sitemap, uncomment and update the URL below:
+Sitemap: https://rugeromed.com/sitemap.xml
