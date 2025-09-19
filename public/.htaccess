@@ -1,0 +1,23 @@
+# Vite/React Router SPA rewrite for Apache (Namecheap)
+# Sends all non-file, non-directory requests to index.html
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # If the request is for an existing file or directory, serve it
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
+
+  # Otherwise, serve index.html so the client router can handle it
+  RewriteRule ^ index.html [L]
+</IfModule>
+
+# Optional: prevent indexing of admin via HTTP header (compliments robots.txt)
+# Uncomment if desired; requires mod_headers
+# <IfModule mod_headers.c>
+#   <FilesMatch "^admin(/.*)?$">
+#     Header set X-Robots-Tag "noindex, nofollow"
+#   </FilesMatch>
+# </IfModule>
