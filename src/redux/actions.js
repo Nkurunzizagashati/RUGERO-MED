@@ -122,7 +122,7 @@ export const postProduct = (productData) => async (dispatch) => {
 export const updateProduct = (id, productData) => async (dispatch) => {
 	try {
 		dispatch(setProductsPending());
-		const response = await axios.put(
+		const response = await axios.patch(
 			`${backendUrl}/products/${id}`,
 			productData,
 			getAuthHeader()
